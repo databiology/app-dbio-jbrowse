@@ -1,0 +1,46 @@
+CIAO: 5
+
+
+ABOUT:
+
+    NAME:          app/dbio/jbrowse
+    LABEL:         "JBrowse"
+    AUTHOR:        "Felipe Leza <felipe.leza@databiology.com>"
+    DESCRIPTION:   "JBrowse is a fast, embeddable genome browser built completely with JavaScript and HTML5, with optional run-once data formatting tools written in Perl."
+    LICENSE:       "GNU Lesser General Public License v2.1 or later"
+
+
+REFERENCES:
+
+    -
+        SOURCETREE: /ref/dbio/ensembl/release-91/genomes
+        MOUNTPOINT: /human_ref
+
+    -
+        SOURCETREE: /ref/dbio/jbrowse/1.12.1/soybeanv2.0
+        MOUNTPOINT: /soy_ref
+
+
+PARAMETERS:
+
+    -
+        TYPE:        CHOICE
+        KEY:         genome
+        VALUE:       "GRCh37"
+        LABEL:       "Genome"
+        CHOICES:
+            - "GRCh37": "Human GRCh37"
+            - "GRCh38": "Human GRCh38"
+            - "SOY": "Soybean v2.0"
+        MODIFIABLE:  True
+        DESCRIPTION: "Genome available indexes GRCh37, GRCh38 or Soybean v2.0"
+
+
+    -
+        TYPE:                                         SWITCH
+        KEY:                                concat_sort_index
+        LABEL:                         "Concatenate, Sort and Index VCF files"
+        VALUE:                                         False
+        MODIFIABLE:                                     True
+        DESCRIPTION:
+             If selected, the VCF files will be concatenated in a single VCF per individual, sorted by chromosomal order, and indexed. Result files will be *.sort.vcf.gz and *.sort.vcf.gz.tbi

@@ -1,0 +1,15 @@
+subjects(validate:"id>0"){
+    id
+    individualId
+    samples{
+        id
+        extracts{
+            id
+            resources{
+               id
+               name
+               relativepath
+            }
+       }
+    }
+}

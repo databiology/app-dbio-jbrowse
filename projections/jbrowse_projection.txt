@@ -1,0 +1,5 @@
+ 	resources(validate: "name match '*.bam' OR name match '*.bam.bai' OR name match '*.vcf.gz' OR name match '*.vcf.gz.tbi' OR name match '*.bw' OR name match '*.cg' OR name match '*.chg' OR name match '*.chh' ") {
+    id
+    name
+    relativePath
+}
