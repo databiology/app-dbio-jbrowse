@@ -17,7 +17,7 @@ REFERENCES:
         MOUNTPOINT: /GRCh38
 
     -
-        SOURCETREE: /ref/dbio/ensembl/release-92/genomes/homo_sampiens/GRCh37/
+        SOURCETREE: /ref/dbio/ensembl/release-92/genomes/homo_sapiens/GRCh37/
         MOUNTPOINT: /GRCh37
 
     -
