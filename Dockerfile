@@ -1,4 +1,4 @@
-FROM app/dbio/base:4.2.3
+FROM dbio/base:5.0.1
 
 ENV DEBIAN_FRONTEND noninteractive
 
