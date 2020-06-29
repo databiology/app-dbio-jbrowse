@@ -13,8 +13,12 @@ ABOUT:
 REFERENCES:
 
     -
-        SOURCETREE: /ref/dbio/ensembl/release-91/genomes
-        MOUNTPOINT: /human_ref
+        SOURCETREE: /ref/dbio/ensembl/release-97/GRCh38/
+        MOUNTPOINT: /GRCh38
+
+    -
+        SOURCETREE: /ref/dbio/ensembl/release-92/genomes/homo_sampiens/GRCh37/
+        MOUNTPOINT: /GRCh37
 
     -
         SOURCETREE: /ref/dbio/jbrowse/1.12.1/soybeanv2.0

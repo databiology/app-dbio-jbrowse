@@ -9,7 +9,8 @@ SCRATCH=/scratch
 SOURCEDIR=${SCRATCH}/inputresources
 RESULTDIR=${SCRATCH}/results
 JBROWSE=/www/html/jbrowse
-HUMAN_REF=/human_ref
+HUMAN_REF_GRCh38=/GRCh38
+HUMAN_REF_GRCh37=/GRCh37
 SOY_REF=/soy_ref
 
 REF=/www/html/jbrowse/data
@@ -124,30 +125,30 @@ GENOME=$(jq -r '.["APPLICATION"] .genome' $SCRATCH/parameters.json)
 case $GENOME in
     GRCh37)
         echo "Using Genome GRCh37"
-        if [ ! -e "$HUMAN_REF/$GENOME.fa" ]; then
+        if [ ! -e "$HUMAN_REF_GRCh37/Homo_sapiens.$GENOME.fa" ]; then
           echo "Reference not found, please report the issue"
           falseexit
         fi
-        REF="$HUMAN_REF/$GENOME.fa"
+        REF="$HUMAN_REF_GRCh37/Homo_sapiens.$GENOME.fa"
 
-        if [ ! -e "$HUMAN_REF/$GENOME.gff3" ]; then
+        if [ ! -e "$HUMAN_REF_GRCh37/Homo_sapiens.$GENOME.87.gff3" ]; then
           echo "${GENOME}.gff3 file not found, please report the issue"
           falseexit
         fi
-        GFF="$HUMAN_REF/$GENOME.gff3"
+        GFF="$HUMAN_REF_GRCh37/Homo_sapiens.$GENOME.87.gff3"
         ;;
     GRCh38)
         echo "Using Genome GRCh38"
-        if [ ! -e "$HUMAN_REF/$GENOME.fa" ]; then
+        if [ ! -e "$HUMAN_REF_GRCh38/$GENOME.97.fa" ]; then
             echo "Reference not found, please report the issue"
             falseexit
         fi
-        REF="$HUMAN_REF/$GENOME.fa"
-        if [ ! -e "$HUMAN_REF/$GENOME.gff3" ]; then
-          echo "${GENOME}.gff3 file not found, please report the issue"
+        REF="$HUMAN_REF_GRCh38/$GENOME.97.fa"
+        if [ ! -e "$HUMAN_REF_GRCh38/$GENOME.97.gff3" ]; then
+          echo "${GENOME}.97.gff3 file not found, please report the issue"
           falseexit
         fi
-        GFF="$HUMAN_REF/$GENOME.gff3"
+        GFF="$HUMAN_REF_GRCh38/$GENOME.97.gff3"
         ;;
     SOY)
         REF=$(echo $SOY_REF/*.fa)
