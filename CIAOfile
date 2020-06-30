@@ -33,11 +33,11 @@ PARAMETERS:
         VALUE:       "GRCh37"
         LABEL:       "Genome"
         CHOICES:
-            - "GRCh37": "Human GRCh37"
-            - "GRCh38": "Human GRCh38"
-            - "SOY": "Soybean v2.0"
+            - "GRCh37": "Human genome GRCh37 (release 92)"
+            - "GRCh38": "Human genome GRCh38 (release 97)"
+            - "SOY": "Soybean (Gmax v2.0)"
         MODIFIABLE:  True
-        DESCRIPTION: "Genome available indexes GRCh37, GRCh38 or Soybean v2.0"
+        DESCRIPTION: "Genome indexes available GRCh37, GRCh38 or Soybean v2.0"
 
 
     -
