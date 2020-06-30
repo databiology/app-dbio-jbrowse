@@ -5,11 +5,11 @@
 
 !!Version
 ||__Program Version__|1.12.1
-__Databiology Application Version__|2.2.2||
+__Databiology Application Version__|2.3.0||
 !!+Deploying
 If you want to ((Deprecated: Pulling and Pushing Application Images|deploy)) the latest version of this app, this is the pull you should do:
 {CODE(colors="Shell" wrap=0)}
-$ docker pull repo.lab.databiology.net/app/dbio/jbrowse:2.2.2
+$ docker pull repo.lab.databiology.net/app/dbio/jbrowse:2.3.0
 {CODE}
 If you want to deploy a previous version, the pull should be:
 {CODE(colors="Shell" wrap=0)}
@@ -18,6 +18,7 @@ $ docker pull repo.lab.databiology.net/app/dbio/jbrowse:<version>
 Just replace <version> with the ''Databiology Application Version'' you're interested in.
 !!Application Changelog
 ||__Version__|__Release Notes__
+2.3.0|Update base image v5.0.1, references and namespace migration
 2.2.2|Add parameter to concatenate, sort and index VCF files. The VCF files are per individual and one file per chr.
 2.2.1|Use Base image 4.2.3
 2.2.0|Added MethylationPlugin and Soybean v2.0 reference.
@@ -29,15 +30,14 @@ Just replace <version> with the ''Databiology Application Version'' you're inter
 JBrowse is a fast, embeddable genome browser built completely with JavaScript and HTML5, with optional run-once data formatting tools written in Perl.
 
 !!!Terminate the WorkUnit
-To finish the WU correctly, go to the top menu click on Terminate Workunit -> click Stop. {img fileId="1314" imalign=center vspace="40" height="80%" width="80%"}
+To finish the WU correctly, go to the top menu and click on Terminate Workunit -> click Stop. {img fileId="1314" imalign=center vspace="40" height="80%" width="80%"}
 ---
 !!Supported architectures
-*ppc64le
 *x86_64
 ---
 !!Input files
-*BAM and BAI file(s) (<filename>.bam and <filename>.bai) or
-*VCF and TBI file(s) compressed (<filename>.vcf.gz and <filename>.vcf.gz.tbi)
+*BAM and BAI files (<filename>.bam and <filename>.bai) or
+*VCF and TBI files compressed (<filename>.vcf.gz and <filename>.vcf.gz.tbi)
 !!!!Optional
 *Methylation Tracks (For [https://github.com/bhofmei/jbplugin-methylation|Methylation Plugin] three files are required: *.cg, *.chg and *.chh)
 
@@ -56,7 +56,7 @@ Concatenate, Sort and Index VCF files|If this is Active, the VCF files will be c
 
 ---
 !!License
-[http://jbrowse.org/code/JBrowse-1.12.1/LICENSE|GNU Lesser General Public License v2.1 or later]
+[https://github.com/GMOD/jbrowse/blob/master/LICENSE|GNU Lesser General Public License v2.1]
 ---
 !!External link
 [http://jbrowse.org/|Homepage]
