@@ -5,19 +5,20 @@
 
 !!Version
 ||__Program Version__|1.12.1
-__Databiology Application Version__|2.3.0||
+__Databiology Application Version__|2.3.1||
 !!+Deploying
 If you want to ((Deprecated: Pulling and Pushing Application Images|deploy)) the latest version of this app, this is the pull you should do:
 {CODE(colors="Shell" wrap=0)}
-$ docker pull repo.lab.databiology.net/app/dbio/jbrowse:2.3.0
+$ docker pull repo.lab.databiology.net/dbio/jbrowse:2.3.1
 {CODE}
 If you want to deploy a previous version, the pull should be:
 {CODE(colors="Shell" wrap=0)}
-$ docker pull repo.lab.databiology.net/app/dbio/jbrowse:<version>
+$ docker pull repo.lab.databiology.net/dbio/jbrowse:<version>
 {CODE}
 Just replace <version> with the ''Databiology Application Version'' you're interested in.
 !!Application Changelog
 ||__Version__|__Release Notes__
+2.3.1|Fix references and update documentation
 2.3.0|Update base image v5.0.1, references and namespace migration
 2.2.2|Add parameter to concatenate, sort and index VCF files. The VCF files are per individual and one file per chr.
 2.2.1|Use Base image 4.2.3
@@ -37,29 +38,28 @@ To finish the WU correctly, go to the top menu and click on Terminate Workunit -
 ---
 !!Input files
 *BAM and BAI files (<filename>.bam and <filename>.bai) or
-*VCF and TBI files compressed (<filename>.vcf.gz and <filename>.vcf.gz.tbi)
+*VCF and TBI compressed files (<filename>.vcf.gz and <filename>.vcf.gz.tbi)
 !!!!Optional
 *Methylation Tracks (For [https://github.com/bhofmei/jbplugin-methylation|Methylation Plugin] three files are required: *.cg, *.chg and *.chh)
 
 !!Output files
 *None
+*If __Concatenate, Sort and Index VCF files__ is Active, then outputs are VCF and TBI compressed files.
 ---
 !!Parameters
+||__Name__|__Description__|__Values__|__Default__
+Genome|Reference genome|Human genome GRCh37, Human genome GRCh38, Soybean|Human genome GRCh37
+Concatenate, Sort and Index VCF files|If this is Active, the VCF files will be concatenated in a single VCF per individual, sorted by chromosomal order, and indexed. Result files will be *.sort.vcf.gz and *.sort.vcf.gz.tbi|Active/Inactive|Inactive||
+
 If __Concatenate, Sort and Index VCF files__ is Active, the input VCF files (<filename>.vcf.gz) must be associated with an Extract, Sample and Subject. Extract type contains all VCF files per individual, one file per Chr.
 If __Concatenate, Sort and Index VCF files__ is Inactive, it is optional that input files (BAM or VCF files) are associated with an Extract, Sample and Subject.
 
-||__Name__|__Description__|__Values__|__Default__
-Genome|Reference genome|GRCh37, GRCh38, Soybean v2.0|GRCh37
-Concatenate, Sort and Index VCF files|If this is Active, the VCF files will be concatenated in a single VCF per individual, sorted by chromosomal order, and indexed. Result files will be *.sort.vcf.gz and *.sort.vcf.gz.tbi|Active/Inactive|Inactive
-||
-
-
 ---
 !!License
-[https://github.com/GMOD/jbrowse/blob/master/LICENSE|GNU Lesser General Public License v2.1]
+[https://github.com/GMOD/jbrowse/blob/master/LICENSE |GNU Lesser General Public License v2.1]
 ---
 !!External link
-[http://jbrowse.org/|Homepage]
+[http://jbrowse.org/ | Homepage]
 
 -==-
 Go back to ((Analysis Applications|Analysis Applications)) or to the ((Home Page|Home Page))
@@ -67,3 +67,4 @@ Go back to ((Analysis Applications|Analysis Applications)) or to the ((Home Page
 <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="databiology.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();
 /*]]>*/</script>
 <!-- End of databiology Zendesk Widget script -->{HTML}
+::__Copyright ©2020. All Rights Reserved. Confidential Databiology Ltd.__::

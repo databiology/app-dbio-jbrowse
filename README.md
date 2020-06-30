@@ -5,13 +5,13 @@
  | | |
 ---|---
 __Program Version__|1.12.1
-__Databiology Application Version__|2.3.0
+__Databiology Application Version__|2.3.1
 
 ## Deploying
 
 If you want to deploy the latest version of this app, this is the pull you should do:
 
-     docker pull hub.databiology.net/dbio/jbrowse:2.3.0
+     docker pull hub.databiology.net/dbio/jbrowse:2.3.1
 
 If you want to deploy a previous version, the pull should be:
 
@@ -24,6 +24,7 @@ Just replace {VERSION} with the Version you're interested in. For full deploymen
  | | |
 ---|---
 __Version__|__Release Notes__
+2.3.1|Fix references and update documentation
 2.3.0|Update base image v5.0.1, references and namespace migration
 2.2.2|Add parameter to concatenate, sort and index VCF files. The VCF files are per individual and one file per chr.
 2.2.1|Use Base image 4.2.3
@@ -51,7 +52,7 @@ To finish the WU correctly, go to the top menu and click on Terminate Workunit -
 ### Input files
 
 * BAM and BAI files ({filename}.bam and {filename}.bai) or
-* VCF and TBI files compressed ({filename}.vcf.gz and {filename}.vcf.gz.tbi)
+* VCF and TBI compressed files ({filename}.vcf.gz and {filename}.vcf.gz.tbi)
 
 #### Optional
 
@@ -60,17 +61,19 @@ To finish the WU correctly, go to the top menu and click on Terminate Workunit -
 ### Output files
 
 * None
+* If __Concatenate, Sort and Index VCF files__ is Active, then outputs are VCF and TBI compressed files.
 
 ## Parameters
-
-If __Concatenate, Sort and Index VCF files__ is Active, the input VCF files ({filename}.vcf.gz) must be associated with an Extract, Sample and Subject. Extract type contains all VCF files per individual, one file per Chr.
-If __Concatenate, Sort and Index VCF files__ is Inactive, it is optional that input files (BAM or VCF files) are associated with an Extract, Sample and Subject.
 
  | | | | |
 ---|---|---|---
 __Name__|__Description__|__Values__|__Default__
-Genome|Reference genome|GRCh37, GRCh38, Soybean v2.0|GRCh37
+Genome|Reference genome|Human genome GRCh37, Human genome GRCh38, Soybean|Human genome GRCh37
 Concatenate, Sort and Index VCF files|If this is Active, the VCF files will be concatenated in a single VCF per individual, sorted by chromosomal order, and indexed. Result files will be *.sort.vcf.gz and *.sort.vcf.gz.tbi|Active/Inactive|Inactive
+
+If __Concatenate, Sort and Index VCF files__ is Active, the input VCF files ({filename}.vcf.gz) must be associated with an Extract, Sample and Subject. Extract type contains all VCF files per individual, one file per Chr.
+
+If __Concatenate, Sort and Index VCF files__ is Inactive, it is optional that input files (BAM or VCF files) are associated with an Extract, Sample and Subject.
 
 ## License
 
