@@ -13,11 +13,11 @@ ABOUT:
 REFERENCES:
 
     -
-        SOURCETREE: /ref/dbio/ensembl/release-97/GRCh38/
+        SOURCETREE: /ref/dbio/ensembl/release-97/GRCh38
         MOUNTPOINT: /GRCh38
 
     -
-        SOURCETREE: /ref/dbio/ensembl/release-92/genomes/homo_sapiens/GRCh37/
+        SOURCETREE: /ref/dbio/ensembl/release-92/genomes/homo_sapiens/GRCh37
         MOUNTPOINT: /GRCh37
 
     -
